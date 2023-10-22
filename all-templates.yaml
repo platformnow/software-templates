@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: platformnow-collection
+  description: A collection of Backstage Templates for Landscape
+spec:
+  type: url
+  targets:
+    - https://github.com/platformnow/software-templates/blob/main/templates/github/register-component/template.yaml
