@@ -31,6 +31,12 @@ spec:
         repositoryName:
           title: Repository name
           type: string
+        targetPath:
+          title: Target path
+          type: string
+          description: |
+              If the component is located in a subdirectory of the repository, specify the path to the subdirectory.
+              For example, if the component is located in the `packages/backend` subdirectory of the repository, specify `packages/backend`.
 
     - title: Provide information about the new component
       required:
@@ -90,6 +96,7 @@ spec:
       input:
         repoUrl: ${{ parameters.githubHost }}?owner=${{ parameters.githubOrganization }}&repo=${{ parameters.repositoryName }}
         branchName: add-catalog-info
+        targetPath: ${{ parameters.sourceCodePath }}
         title: add catalog-info.yaml
         description: |
           This pull request adds a **Backstage entity metadata file** to this repository.
