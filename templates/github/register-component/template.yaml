@@ -87,7 +87,7 @@ spec:
       action: fetch:plain
       input:
         url: https://${{ parameters.githubHost }}/${{ parameters.githubOrganization }}/${{ parameters.repositoryName }}
-
+        targetPath: ${{ parameters.targetPath }}
     - id: catalogTemplate
       name: Create catalog-info.yaml file
       action: fetch:template
