@@ -60,30 +60,24 @@ spec:
                 - User
         componentType:
           title: Type
-          type: array
-          items:
-            type: string
-            properties:
-              enum:
-                - api
-                - app
-                - library
-                - service
-                - website
-                - other
+          type: string
+          enum:
+            - api
+            - app
+            - library
+            - service
+            - website
+            - other
           description: 'The type of component. Well-known and common values: service, website, library.'
           default: [service]
         componentLifecycle:
           title: Lifecycle
-          type: array
-          items:
-            type: string
-            properties:
-              enum:
-                - experimental
-                - production
-                - deprecated
-                - unknown
+          type: string
+          enum:
+            - experimental
+            - production
+            - deprecated
+            - unknown
           description: 'The lifecycle state of the component. Well-known and common values: experimental, production, deprecated.'
           default: [unknown]
 
