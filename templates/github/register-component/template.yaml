@@ -103,6 +103,9 @@ spec:
         repoUrl: ${{ parameters.githubHost }}?owner=${{ parameters.githubOrganization }}&repo=${{ parameters.repositoryName }}
         branchName: add-catalog-info
         targetPath: ${{ parameters.targetPath }}
+        labels:
+          - component/${{ parameters.componentName }}
+          - name/${{ parameters.componentName }}
         title: add ${{ parameters.targetPath }} catalog-info.yaml
         description: |
           This pull request adds a **Backstage entity metadata file** to this repository.
@@ -110,15 +113,15 @@ spec:
           After this pull request is merged, the component will become available.
 
           For more information, read an [overview of the Backstage software catalog](https://backstage.io/docs/features/software-catalog/).
-    - id: labePR
-      name: Label PR
-      action: github:issues:label
-      input:
-        repoUrl: ${{ parameters.githubHost }}?owner=${{ parameters.githubOrganization }}&repo=${{ parameters.repositoryName }}
-        number: ${{ steps.publishPR.output.pullRequestNumber }}
-        labels:
-          - component/${{ parameters.componentName }}
-          - name/${{ parameters.componentName }}
+#    - id: labePR
+#      name: Label PR
+#      action: github:issues:label
+#      input:
+#        repoUrl: ${{ parameters.githubHost }}?owner=${{ parameters.githubOrganization }}&repo=${{ parameters.repositoryName }}
+#        number: ${{ steps.publishPR.output.pullRequestNumber }}
+#        labels:
+#          - component/${{ parameters.componentName }}
+#          - name/${{ parameters.componentName }}
 
     - id: registerWithTargetPath
       name: Register component with target path
