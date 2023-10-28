@@ -120,7 +120,7 @@ spec:
         repoUrl: ${{ parameters.githubHost }}?owner=${{ parameters.githubOrganization }}&repo=${{ parameters.repositoryName }}
         number: ${{ steps.publishPR.output.pullRequestNumber }}
         labels:
-          - component/${{ parameters.componentName }}
+          - component/${{ parameters.componentType }}
           - name/${{ parameters.componentName }}
 
     - id: registerWithTargetPath
