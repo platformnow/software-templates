@@ -80,6 +80,10 @@ spec:
             - unknown
           description: 'The lifecycle state of the component. Well-known and common values: experimental, production, deprecated.'
           default: [unknown]
+        system:
+          title: System
+          type: string
+          description: 'The system that the component belongs to. For example, the system that the component is part of.'
 
   steps:
     - id: catalogTemplate
@@ -95,6 +99,7 @@ spec:
           applicationType: ${{ parameters.componentType }}
           owner: ${{ parameters.componentOwner }}
           lifecycle: ${{ parameters.componentLifecycle }}
+          system: ${{ parameters.system }}
 
     - id: publishPR
       name: Open PR with catalog-info.yaml
