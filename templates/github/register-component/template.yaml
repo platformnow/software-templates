@@ -110,6 +110,15 @@ spec:
           After this pull request is merged, the component will become available.
 
           For more information, read an [overview of the Backstage software catalog](https://backstage.io/docs/features/software-catalog/).
+    - id: labePR
+      name: Label PR
+      action: github:issues:label
+      input:
+        repoUrl: ${{ parameters.githubHost }}?owner=${{ parameters.githubOrganization }}&repo=${{ parameters.repositoryName }}
+        number: ${{ steps.publishPR.output.pullRequestNumber }}
+        labels:
+          - component/${{ parameters.componentName }}
+          - name/${{ parameters.componentName }}
 
     - id: registerWithTargetPath
       name: Register component with target path
