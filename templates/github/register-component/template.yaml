@@ -113,7 +113,7 @@ spec:
 
     - id: registerWithTargetPath
       name: Register component with target path
-      if: ${{ parameters.targetPath }}
+      if: ${{ parameters.targetPath && parameters.targetPath !== '' }}
       action: catalog:register
       input:
         repoContentsUrl: https://${{ parameters.githubHost }}/${{ parameters.githubOrganization }}/${{ parameters.repositoryName }}/blob/${{ steps.publishPR.output.targetBranchName }}/
@@ -122,7 +122,7 @@ spec:
 
     - id: registerWithoutTargetPath
       name: Register component without target path
-      if: ${{ !parameters.targetPath }}
+      if: ${{ parameters.targetPath && parameters.targetPath == '' }}
       action: catalog:register
       input:
         repoContentsUrl: https://${{ parameters.githubHost }}/${{ parameters.githubOrganization }}/${{ parameters.repositoryName }}/blob/${{ steps.publishPR.output.targetBranchName }}/
