@@ -111,12 +111,22 @@ spec:
 
           For more information, read an [overview of the Backstage software catalog](https://backstage.io/docs/features/software-catalog/).
 
-    - id: register
-      name: Register component
+    - id: registerWithTargetPath
+      name: Register component with target path
+      if: ${{ parameters.targetPath }}
       action: catalog:register
       input:
         repoContentsUrl: https://${{ parameters.githubHost }}/${{ parameters.githubOrganization }}/${{ parameters.repositoryName }}/blob/${{ steps.publishPR.output.targetBranchName }}/
-        catalogInfoPath: ${{ if parameters.targetPath }}/${{ parameters.targetPath }}/catalog-info.yaml${{ else }}/catalog-info.yaml${{ endif }}
+        catalogInfoPath: /${{ parameters.targetPath }}/catalog-info.yaml
+        optional: true
+
+    - id: registerWithoutTargetPath
+      name: Register component without target path
+      if: ${{ !parameters.targetPath }}
+      action: catalog:register
+      input:
+        repoContentsUrl: https://${{ parameters.githubHost }}/${{ parameters.githubOrganization }}/${{ parameters.repositoryName }}/blob/${{ steps.publishPR.output.targetBranchName }}/
+        catalogInfoPath: /catalog-info.yaml
         optional: true
 
   output:
