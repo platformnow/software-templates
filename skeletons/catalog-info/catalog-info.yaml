@@ -30,7 +30,7 @@ spec:
   {%- if values.lifecycle %}
   lifecycle: ${{ values.lifecycle }}
   {%- else %}
-  lifecycle: production
+  lifecycle: experimental
   {%- endif %}
   owner: ${{ values.owner }}
   {%- if values.dependsOn %}

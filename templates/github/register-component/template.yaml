@@ -92,7 +92,6 @@ spec:
           orgName: ${{ parameters.githubOrganization }}
           sourceControl: github.com
           repoName: ${{ parameters.repositoryName }}
-          componentLifecycle: ${{ parameters.componentLifecycle }}
           applicationType: ${{ parameters.componentType }}
           owner: ${{ parameters.componentOwner }}
           lifecycle: ${{ parameters.componentLifecycle }}
