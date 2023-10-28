@@ -116,7 +116,7 @@ spec:
       action: catalog:register
       input:
         repoContentsUrl: https://${{ parameters.githubHost }}/${{ parameters.githubOrganization }}/${{ parameters.repositoryName }}/blob/${{ steps.publishPR.output.targetBranchName }}/
-        catalogInfoPath: ${{ parameters.targetPath ? `/${parameters.targetPath}/catalog-info.yaml` : '/catalog-info.yaml' }}
+        catalogInfoPath: ${{ if parameters.targetPath }}/${{ parameters.targetPath }}/catalog-info.yaml${{ else }}/catalog-info.yaml${{ endif }}
         optional: true
 
   output:
