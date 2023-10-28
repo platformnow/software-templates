@@ -95,6 +95,7 @@ spec:
           componentLifecycle: ${{ parameters.componentLifecycle }}
           applicationType: ${{ parameters.componentType }}
           owner: ${{ parameters.componentOwner }}
+          lifecycle: ${{ parameters.componentLifecycle }}
 
     - id: publishPR
       name: Open PR with catalog-info.yaml
