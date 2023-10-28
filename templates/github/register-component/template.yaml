@@ -103,7 +103,7 @@ spec:
         repoUrl: ${{ parameters.githubHost }}?owner=${{ parameters.githubOrganization }}&repo=${{ parameters.repositoryName }}
         branchName: add-catalog-info
         targetPath: ${{ parameters.targetPath }}
-        title: add catalog-info.yaml
+        title: add ${{ parameters.targetPath }} catalog-info.yaml
         description: |
           This pull request adds a **Backstage entity metadata file** to this repository.
 
